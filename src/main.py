@@ -20,10 +20,8 @@ class Main:
         board = self.game.board
 
         while True:
-            # Show methods
             game.show_bg(screen)
             game.show_pieces(screen)
-            game.show_moves(screen)
 
             if dragger.dragging:
                 dragger.update_blit(screen)
@@ -39,23 +37,16 @@ class Main:
                     # Check if clicked row has piece
                     if board.squares[clicked_row][clicked_col].has_piece():
                         piece = board.squares[clicked_row][clicked_col].piece
-                        board.calc_moves(piece, clicked_row, clicked_col)
                         # Save initial position in case invalid move is made
                         dragger.save_inital(event.pos)
                         dragger.drag_piece(piece)
-                        # Show methods
-                        game.show_bg(screen)
-                        game.show_moves(screen)
-                        game.show_pieces(screen)
 
                 # Mouse motion
                 elif event.type == pygame.MOUSEMOTION:
                     # Check to see if piece is dragged
                     if dragger.dragging:
                         dragger.update_mouse(event.pos)
-                        # Show methods
                         game.show_bg(screen)
-                        game.show_moves(screen)
                         game.show_pieces(screen)
                         dragger.update_blit(screen)
 

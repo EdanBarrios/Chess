@@ -18,7 +18,6 @@ class Board:
         """
         Calculate and describr all possible (valid) moves of a specific piece from its respective position
         """
-
         def knight_moves():
             # Maximum of eight possible moves
             possible_moves = [
@@ -35,17 +34,17 @@ class Board:
             for possible_move in possible_moves:
                 possible_move_row, possible_move_col = possible_move
                 if Square.in_range(possible_move_row, possible_move_col):
-                    if self.squares[possible_move_row][
-                        possible_move_col
-                    ].isempty_or_rival(piece.color):
-                        # Create squares of new move
-                        initial = Square(row, col)
-                        final = Square(possible_move_row, possible_move_col)
-                        # Create new move
-                        move = Move(initial, final)
-                        # Append new valid move
-                        piece.add_move(move)
+                    if self.squares[possible_move_row][possible_move_col].isempty_or_rival(piece.color)
+                    # Create squares of new move
+                    initial = Square(row, col)
+                    final = Square(possible_move_row, possible_move_col) 
+                    # Create new move
+                    move = Move(initial, final)
+                    # Append new valid move
+                    piece.add_move(move)
 
+
+            
         if isinstance(piece, Pawn):
             pass
 
