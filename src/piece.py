@@ -21,6 +21,9 @@ class Piece:
 
     def add_move(self, move):
         self.moves.append(move)
+        print(
+            f"Move added to {self}: {move.initial.row, move.initial.col} -> {move.final.row, move.final.col}"
+        )
 
 
 class Pawn(Piece):

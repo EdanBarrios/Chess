@@ -3,6 +3,8 @@ from piece import *  # Importing all pieces (Pawn, Knight, Bishop, Rook, Queen, 
 from const import *  # Importing constants (ROWS, COLS)
 from move import Move
 
+import os
+
 
 class Board:
 
@@ -16,7 +18,7 @@ class Board:
 
     def calc_moves(self, piece, row, col):
         """
-        Calculate and describr all possible (valid) moves of a specific piece from its respective position
+        Calculate and describe all possible (valid) moves of a specific piece from its respective position
         """
 
         def knight_moves():
@@ -34,6 +36,7 @@ class Board:
 
             for possible_move in possible_moves:
                 possible_move_row, possible_move_col = possible_move
+
                 if Square.in_range(possible_move_row, possible_move_col):
                     if self.squares[possible_move_row][
                         possible_move_col
@@ -45,6 +48,9 @@ class Board:
                         move = Move(initial, final)
                         # Append new valid move
                         piece.add_move(move)
+                        print(
+                            f"Added move: {move.initial.row, move.initial.col} -> {move.final.row, move.final.col}"
+                        )
 
         if isinstance(piece, Pawn):
             pass

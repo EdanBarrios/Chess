@@ -48,10 +48,11 @@ class Game:
 
             # Loop all valid modes
             for move in piece.moves:
+                print(f"Move: {move.final.row, move.final.col}")
                 color = (
-                    "#C86464"
+                    (200, 0, 0)
                     if (move.final.row + move.final.col) % 2 == 0
-                    else "#C84646"
+                    else (150, 0, 0)
                 )
 
                 rect = (
